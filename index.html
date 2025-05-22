@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hamong Music</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    header {
+      transition: background-color 0.4s ease;
+      background-color: rgba(0, 0, 0, 0.4);
+    }
+    .scrolled {
+      background-color: rgba(0, 0, 0, 0.8) !important;
+    }
+    nav a {
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #fbbf24;
+    }
+    .mobile-menu {
+      transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
+    }
+    .mobile-menu.hidden {
+      transform: translateY(-10%);
+      opacity: 0;
+      pointer-events: none;
+    }
+    .mobile-menu.visible {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+    #overlay {
+      transition: opacity 0.3s ease;
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-white">
+
+  <!-- Overlay escurecido -->
+  <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 z-30 hidden"></div>
+
+  <!-- Navbar -->
+  <header class="fixed top-0 left-0 w-full z-50">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+      <a href="#home" class="flex items-center space-x-3">
+        <img src="posts/logo-hamong.png" alt="Hamong Music Logo" class="w-12 h-12 rounded-full object-cover border border-yellow-500 shadow-sm" />
+      </a>
+      <nav class="hidden md:flex space-x-6 text-sm md:text-base">
+        <a href="#home">Início</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#musicas">Músicas</a>
+        <a href="#letras">Letras</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+      <div class="md:hidden">
+        <button id="menu-btn" class="text-yellow-400 focus:outline-none text-3xl">
+          <span id="open-icon">&#9776;</span>
+          <span id="close-icon" class="hidden">&times;</span>
+        </button>
+      </div>
+    </div>
+    <div id="mobile-nav" class="mobile-menu hidden fixed top-16 left-0 w-full bg-black bg-opacity-90 text-center py-6 z-40 md:hidden">
+      <a href="#home" class="block text-lg py-3 hover:text-yellow-400">Início</a>
+      <a href="#sobre" class="block text-lg py-3 hover:text-yellow-400">Sobre</a>
+      <a href="#musicas" class="block text-lg py-3 hover:text-yellow-400">Músicas</a>
+      <a href="#letras" class="block text-lg py-3 hover:text-yellow-400">Letras</a>
+      <a href="#contactos" class="block text-lg py-3 hover:text-yellow-400">Contactos</a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="relative h-[60vh] flex items-center justify-center text-center px-4 bg-black pt-24">
+    <div class="absolute inset-0 flex justify-center items-center">
+      <img src="posts/HM5.png" alt="Fundo Hamong" class="max-h-[60vh] w-auto opacity-30 object-contain mx-auto" />
+    </div>
+    <div class="relative z-10 text-white">
+      <h1 class="text-4xl md:text-6xl font-extrabold mb-4">Hamong Music</h1>
+      <p class="text-lg md:text-2xl font-medium text-yellow-400">Novo EP: <span class="font-bold">RAPLOGIA</span></p>
+      <p class="text-gray-300 mt-3 max-w-xl mx-auto">Rap com alma, verso com visão. O som que te atravessa.</p>
+      <a href="#musicas" class="inline-block mt-6 px-6 py-2 bg-yellow-500 hover:bg-yellow-600 text-black font-semibold rounded-full transition duration-300">Ouvir Agora</a>
+    </div>
+  </section>
+  <!-- Seção Sobre -->
+  <section id="sobre" class="py-16 px-6 bg-gray-800">
+    <div class="max-w-5xl mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-4 text-yellow-400">Sobre</h2>
+      <p class="text-gray-300">Hamong Music é mais que um colectivo, é uma revolução sonora. Cada faixa é forjada na vivência, cada letra é um manifesto urbano.</p>
+    </div>
+  </section>
+  <!-- Seção Músicas -->
+  <section id="musicas" class="py-16 px-6 bg-gray-900">
+    <div class="max-w-6xl mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-6 text-yellow-400">Músicas</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="bg-gray-800 p-4 rounded-xl shadow">
+          <h3 class="text-xl font-semibold mb-2">Karma</h3>
+          <audio controls class="w-full">
+            <source src="musicas/rima_de_fogo.mp3" type="audio/mpeg">
+          </audio>
+        </div>
+        <div class="bg-gray-800 p-4 rounded-xl shadow">
+          <h3 class="text-xl font-semibold mb-2">Morena de Cabelos Crespos</h3>
+          <audio controls class="w-full">
+            <source src="musicas/verso_da_alma.mp3" type="audio/mpeg">
+          </audio>
+        </div>
+        <!-- Adicione mais blocos conforme necessário -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção Letras -->
+  <section id="letras" class="py-16 px-6 bg-gray-800">
+    <div class="max-w-5xl mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-6 text-yellow-400">Letras</h2>
+      <p class="text-gray-300 mb-6">Explore as letras que narram a jornada Hamong.</p>
+      <div class="text-left">
+        <h3 class="text-xl font-semibold text-white">Karma</h3>
+        <p class="text-gray-400 italic mb-4">“Já me disseram que na vida tudo tem seu tempo ...”</p>
+
+        <h3 class="text-xl font-semibold text-white">Morena de Cabelos Crespos</h3>
+        <p class="text-gray-400 italic mb-4">“Morena de Cabelos Crespos, meu puro veneno...”</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção Contacto -->
+  <section id="contacto" class="py-16 px-6 bg-gray-900">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-4 text-yellow-400">Contacto</h2>
+      <p class="text-gray-300 mb-6">Entre em contacto para parcerias, shows ou colaborações.</p>
+      <form class="max-w-xl mx-auto text-left">
+        <input type="text" placeholder="Nome" class="w-full mb-4 p-2 rounded bg-gray-700 text-white" />
+        <input type="email" placeholder="Email" class="w-full mb-4 p-2 rounded bg-gray-700 text-white" />
+        <textarea placeholder="Mensagem" class="w-full mb-4 p-2 rounded bg-gray-700 text-white"></textarea>
+        <button type="submit" class="bg-yellow-500 hover:bg-yellow-600 text-black font-semibold px-6 py-2 rounded-full">Enviar</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Rodapé -->
+  <footer class="bg-black text-gray-500 text-center py-4">
+    &copy; 2025 Hamong Music. Todos os direitos reservados.
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    const header = document.querySelector('header');
+    const overlay = document.getElementById('overlay');
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileNav = document.getElementById('mobile-nav');
+    const openIcon = document.getElementById('open-icon');
+    const closeIcon = document.getElementById('close-icon');
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    menuBtn.addEventListener('click', () => {
+      const isHidden = mobileNav.classList.contains('hidden');
+      mobileNav.classList.toggle('hidden');
+      mobileNav.classList.toggle('visible');
+      openIcon.classList.toggle('hidden');
+      closeIcon.classList.toggle('hidden');
+      overlay.classList.toggle('hidden');
+    });
+
+    mobileNav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileNav.classList.add('hidden');
+        mobileNav.classList.remove('visible');
+        openIcon.classList.remove('hidden');
+        closeIcon.classList.add('hidden');
+        overlay.classList.add('hidden');
+      });
+    });
+  </script>
+</body>
+  </html>
